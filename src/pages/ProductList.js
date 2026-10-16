@@ -145,10 +145,10 @@ function ProductList() {
                 </Col>
             </Row>
 
-            <Row>
+            <Row className="mt-3">
                 <Col>
                     {filteredProducts.length > 0 && (
-                        <div className="mt-4">
+                        <div >
                             Tổng: {filteredProducts.length} | Trang: {startIndex + 1}/{" "}
                             {Math.min(
                                 startIndex + pageSize,
@@ -157,7 +157,7 @@ function ProductList() {
                         </div>
                     )}
                 </Col>
-                <Col>
+                <Col className="text-end">
                     <Pagination
                         currentPage={currentPage}
                         totalPages={totalPages}

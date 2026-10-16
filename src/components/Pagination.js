@@ -1,6 +1,4 @@
 
-import { Pagination as BootstrapPagination } from "react-bootstrap";
-
 function Pagination({
     currentPage,
     totalPages,
@@ -12,39 +10,54 @@ function Pagination({
 
     const items = [];
 
+    // Nút Previous
     items.push(
-        <BootstrapPagination.Prev
+        <button
             key="prev"
+            type="button"
             disabled={currentPage === 1}
             onClick={() => onPageChange(currentPage - 1)}
-        />
+            className="pagination-btn"
+        >
+            &laquo;
+        </button>
     );
 
+    // Các nút số trang
     for (let page = 1; page <= totalPages; page++) {
         items.push(
-            <BootstrapPagination.Item
+            <button
                 key={page}
-                active={page === currentPage}
+                type="button"
                 onClick={() => onPageChange(page)}
+                className={`pagination-btn ${
+                    page === currentPage ? "active" : ""
+                }`}
+                aria-current={
+                    page === currentPage ? "page" : undefined
+                }
             >
                 {page}
-            </BootstrapPagination.Item>
+            </button>
         );
     }
 
+    // Nút Next
     items.push(
-        <BootstrapPagination.Next
+        <button
             key="next"
+            type="button"
             disabled={currentPage === totalPages}
             onClick={() => onPageChange(currentPage + 1)}
-        />
+            className="pagination-btn"
+        >
+            &raquo;
+        </button>
     );
 
     return (
-        <div className="d-flex justify-content-center mt-4">
-            <BootstrapPagination className="mb-0">
-                {items}
-            </BootstrapPagination>
+        <div className="pagination-container">
+            {items}
         </div>
     );
 }
