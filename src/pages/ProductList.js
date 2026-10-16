@@ -84,6 +84,7 @@ function ProductList() {
         filteredProducts.length / pageSize
     );
 
+
     useEffect(() => {
         const maxPage = Math.max(1, totalPages);
 
@@ -123,6 +124,7 @@ function ProductList() {
         );
     };
 
+
     return (
         <Container>
             <Header />
@@ -149,11 +151,7 @@ function ProductList() {
                 <Col>
                     {filteredProducts.length > 0 && (
                         <div >
-                            Tổng: {filteredProducts.length} | Trang: {startIndex + 1}/{" "}
-                            {Math.min(
-                                startIndex + pageSize,
-                                filteredProducts.length
-                            )}{" "}
+                            Tổng: {filteredProducts.length} | Trang: {currentPage}/{totalPages}
                         </div>
                     )}
                 </Col>
