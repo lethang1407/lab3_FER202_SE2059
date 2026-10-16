@@ -10,7 +10,6 @@ function Pagination({
 
     const items = [];
 
-    // Nút Previous
     items.push(
         <button
             key="prev"
@@ -19,11 +18,10 @@ function Pagination({
             onClick={() => onPageChange(currentPage - 1)}
             className="pagination-btn"
         >
-            &laquo;
+            Trước
         </button>
     );
 
-    // Các nút số trang
     for (let page = 1; page <= totalPages; page++) {
         items.push(
             <button
@@ -42,7 +40,6 @@ function Pagination({
         );
     }
 
-    // Nút Next
     items.push(
         <button
             key="next"
@@ -51,7 +48,7 @@ function Pagination({
             onClick={() => onPageChange(currentPage + 1)}
             className="pagination-btn"
         >
-            &raquo;
+            Sau
         </button>
     );
 
